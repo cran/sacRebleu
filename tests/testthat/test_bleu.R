@@ -1,10 +1,8 @@
 library(testthat)
-library(tok)
 
 
 cand_corpus <- list(c(1,2,3), c(1,2))
 ref_corpus <- list(list(c(1,2,3), c(2,3,4)), list(c(1,2,6), c(781, 21, 9), c(7, 3)))
-tok <- tok::tokenizer$from_file("tokenizer.json")
 
 test_that("Expect errors for wrong arguments", {
   testthat::expect_error(bleu_sentence_ids('as', 'as', 'as'))
@@ -87,26 +85,3 @@ test_that("Random Input", {
   testthat::expect_vector(bleu_corpus_ids(ref, cand))
   testthat::expect_vector(bleu_corpus_ids(ref, cand, n=4, smoothing="floor", epsilon=0.01))
 })
-
-test_that("Test With Tokenizer", {
-  cand <- "Hello World!"
-  ref <- list("Hello everyone.", "Hello Planet", "Hello World")
-  testthat::expect_vector(bleu_sentence(ref, cand, tokenizer=tok))
-  testthat::expect_vector(bleu_corpus(list(ref), list(cand), tokenizer=tok))
-
-  testthat::expect_vector(bleu_sentence(ref, cand, tokenizer=tok))
-})
-
-test_that("Expect Errors with Tokenizer Functions", {
-  cand <- "Hello World!"
-  ref <- list("Hello everyone.", "Hello Planet", "Hello World")
-  testthat::expect_error(bleu_sentence(ref, 1, tokenizer=tok))
-  testthat::expect_error(bleu_sentence(2, "", tokenizer=tok))
-  testthat::expect_error(bleu_corpus(ref, cand, tokenizer=tok))
-  testthat::expect_error(bleu_corpus(list(ref), cand, tokenizer=tok))
-  testthat::expect_error(bleu_corpus(ref, list(cand), tokenizer=tok))
-  testthat::expect_error(bleu_corpus(0, list(cand), tokenizer=tok))
-  testthat::expect_error(bleu_corpus(list(ref), 0, tokenizer=tok))
-})
-
-withr::defer(unlink("~/.cache/huggingface", recursive=TRUE, expand=TRUE), teardown_env())

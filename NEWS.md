@@ -1,5 +1,6 @@
-# sacRebleu 0.1.2
- - Update examples to comply with CRAN standards.
+# sacRebleu 0.2.0
+ - **The following functions have been removed**: `bleu_sentence`, `bleu_corpus`.
+ - 'tok'-dependency droped.
 
 # sacRebleu 0.1.2
  - Update DESCRIPTION, documentation and examples to comply with CRAN standards.

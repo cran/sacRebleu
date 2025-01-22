@@ -2,8 +2,8 @@
 % Please edit documentation in R/sacReBLEU-package.R
 \docType{package}
 \name{sacRebleu}
-\alias{sacRebleu}
 \alias{sacRebleu-package}
+\alias{sacRebleu}
 \title{sacRebleu: An R package for calculating BLEU scores}
 \description{
 This package provides functions for calculating BLEU scores,

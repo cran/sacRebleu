@@ -11,7 +11,5 @@
 ## usethis namespace: start
 # export(bleu_corpus_ids)
 # export(bleu_sentence_ids)
-# export(bleu_sentence)
-# export(bleu_corpus)
 ## usethis namespace: end
 NULL

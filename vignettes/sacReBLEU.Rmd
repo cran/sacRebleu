@@ -70,4 +70,3 @@ bleu_corpus_ids_standard <- bleu_corpus_ids(ref_corpus, cand_corpus)
 ```
 
 Here, the text is already tokenized and represented through integers in the 'cand_corpus' and 'ref_corpus' lists. For tokenization, the ['tok'](https://cran.r-project.org/package=tok) package is recommended.
-It is also possible to feed the function with text using the 'bleu_corpus' or 'bleu_sentence' functions.
